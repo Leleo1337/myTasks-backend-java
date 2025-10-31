@@ -17,7 +17,7 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public List<Task> getAllTasks(String search, String priority, String status) {
+    public List<Task> getAllTasks() {
         List<Task> tasks = taskRepository.findAll();
         return tasks;
     }
