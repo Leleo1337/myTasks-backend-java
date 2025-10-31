@@ -1,9 +1,11 @@
 package com.leleo.mytasks.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.UUID;
 
+@Data
 @Entity
 @Table(name = "tags")
 public class Tag {
