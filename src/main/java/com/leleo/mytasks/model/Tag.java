@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.util.UUID;
 
-@Data
 @Entity
 @Table(name = "tags")
 public class Tag {
