@@ -1,7 +1,8 @@
 package com.leleo.mytasks.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.util.UUID;
 
@@ -27,5 +28,34 @@ public class Tag {
 
     @ManyToOne
     @JoinColumn(name = "task_id", nullable = false)
+    @JsonBackReference
     private Task task;
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 }
