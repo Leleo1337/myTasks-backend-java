@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/api/v1/tasks") // define o prefixo para todos os endpoints
@@ -19,10 +21,14 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping
-    public ResponseEntity<List<Task>> getAllTasks(
-    ) {
+    public ResponseEntity<List<Task>> getAllTasks() {
         List<Task> tasks = taskService.getAllTasks();
         return ResponseEntity.ok(tasks);
     };
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> getTask(@PathVariable UUID id) {
+        Task task = taskService.getTask(id);
+        return ResponseEntity.ok(task);
+    }
 }
