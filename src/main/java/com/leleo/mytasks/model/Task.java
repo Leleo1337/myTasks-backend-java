@@ -33,7 +33,7 @@ public class Task {
     private Boolean completed = false;
     private LocalDateTime date;
 
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Tag> tags = new ArrayList<>();
 
