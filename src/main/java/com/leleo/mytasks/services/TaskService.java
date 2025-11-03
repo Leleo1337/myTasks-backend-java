@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TaskService {
@@ -18,7 +19,11 @@ public class TaskService {
     }
 
     public List<Task> getAllTasks() {
-        List<Task> tasks = taskRepository.findAll();
-        return tasks;
+        return taskRepository.findAll();
     }
+
+    public Task getTask(UUID id) {
+        return taskRepository.findById(id).orElseThrow();
+    }
+
 }
