@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MytasksApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(MytasksApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MytasksApplication.class, args);
+    }
 }
