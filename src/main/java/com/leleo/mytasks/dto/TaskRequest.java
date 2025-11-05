@@ -1,6 +1,7 @@
 package com.leleo.mytasks.dto;
 
 import com.leleo.mytasks.model.Priority;
+import com.leleo.mytasks.model.Tag;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,6 +10,7 @@ public class TaskRequest {
     private String title;
     private String description;
     private Priority priority;
+    private Boolean completed;
     private LocalDateTime date;
     private List<TagRequest> tags;
 
@@ -34,6 +36,14 @@ public class TaskRequest {
 
     public void setPriority(Priority priority) {
         this.priority = priority;
+    }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(Boolean completed) {
+        this.completed = completed;
     }
 
     public LocalDateTime getDate() {
