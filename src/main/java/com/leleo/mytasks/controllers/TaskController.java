@@ -31,12 +31,24 @@ public class TaskController {
     @GetMapping("/{id}")
     public ResponseEntity<Task> getTask(@PathVariable UUID id) {
         Task task = taskService.getTask(id);
-        return ResponseEntity.ok(task);
+        return ResponseEntity.status(HttpStatus.OK).body(task);
     }
 
     @PostMapping
     public ResponseEntity<Task> createTask(@RequestBody TaskRequest request) {
         Task createdTask = taskService.createTask(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdTask);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Task> updateTask(@PathVariable UUID id, @RequestBody TaskRequest request) {
+        Task updatedTask = taskService.updateTask(id, request);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedTask);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Task> deleteTask(@PathVariable UUID id) {
+        Task task = taskService.deleteTask(id);
+        return ResponseEntity.status(HttpStatus.OK).body(task);
     }
 }
