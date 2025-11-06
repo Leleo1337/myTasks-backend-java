@@ -7,9 +7,9 @@ import java.util.List;
 
 public class TaskRequest {
     private String title;
-    private String description;
-    private Priority priority;
-    private Boolean completed;
+    private String description = "";
+    private String priority = "LOW";
+    private Boolean completed = false;
     private LocalDateTime date;
     private List<TagRequest> tags;
 
@@ -29,11 +29,11 @@ public class TaskRequest {
         this.description = description;
     }
 
-    public Priority getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(Priority priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
