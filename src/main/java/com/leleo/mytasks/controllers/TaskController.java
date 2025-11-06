@@ -1,9 +1,7 @@
 package com.leleo.mytasks.controllers;
 
-import com.leleo.mytasks.dto.TaskRequest;
-import com.leleo.mytasks.model.Tag;
+import com.leleo.mytasks.dtos.TaskRequest;
 import com.leleo.mytasks.model.Task;
-import com.leleo.mytasks.repository.TaskRepository;
 import com.leleo.mytasks.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/api/v1/tasks") // define o prefixo para todos os endpoints

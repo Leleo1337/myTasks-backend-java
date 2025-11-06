@@ -1,6 +1,6 @@
 package com.leleo.mytasks.services;
 
-import com.leleo.mytasks.dto.TaskRequest;
+import com.leleo.mytasks.dtos.TaskRequest;
 import com.leleo.mytasks.model.Tag;
 import com.leleo.mytasks.model.Task;
 import com.leleo.mytasks.repository.TaskRepository;

@@ -1,4 +1,4 @@
-package com.leleo.mytasks.dto;
+package com.leleo.mytasks.dtos;
 
 import java.util.UUID;
 

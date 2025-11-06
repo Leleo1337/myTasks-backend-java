@@ -1,7 +1,6 @@
-package com.leleo.mytasks.dto;
+package com.leleo.mytasks.dtos;
 
 import com.leleo.mytasks.model.Priority;
-import com.leleo.mytasks.model.Tag;
 
 import java.time.LocalDateTime;
 import java.util.List;
