@@ -28,7 +28,7 @@ public class Task {
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private Priority priority = Priority.LOW;
+    private Priority priority;
 
     private Boolean completed = false;
     private LocalDateTime date;
