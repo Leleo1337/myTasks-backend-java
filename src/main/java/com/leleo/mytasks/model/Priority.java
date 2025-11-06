@@ -3,8 +3,11 @@ package com.leleo.mytasks.model;
 public enum Priority {
     LOW, MEDIUM, HIGH;
 
-    @Override
-    public String toString() {
+    public String toLowerCase() {
         return name().toLowerCase();
+    }
+
+    public String toUpperCase() {
+        return name().toUpperCase();
     }
 }
