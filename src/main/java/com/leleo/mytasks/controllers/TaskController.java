@@ -44,8 +44,8 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Task> deleteTask(@PathVariable UUID id) {
-        Task task = taskService.deleteTask(id);
-        return ResponseEntity.status(HttpStatus.OK).body(task);
+    public ResponseEntity<String> deleteTask(@PathVariable UUID id) {
+        taskService.deleteTask(id);
+        return ResponseEntity.ok("Deletado com sucesso!");
     }
 }
