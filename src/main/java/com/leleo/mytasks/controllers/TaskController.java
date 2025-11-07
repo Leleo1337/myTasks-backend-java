@@ -20,8 +20,12 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping
-    public ResponseEntity<List<Task>> getAllTasks() {
-        List<Task> tasks = taskService.getAllTasks();
+    public ResponseEntity<List<Task>> getAllTasks(
+            @RequestParam(value = "search", required = false, defaultValue = "") String searchQuery,
+            @RequestParam(value = "priority", required = false, defaultValue = "") String priority,
+            @RequestParam(value = "status", required = false, defaultValue = "") String status
+    ) {
+        List<Task> tasks = taskService.getAllTasks(searchQuery, priority, status);
         return ResponseEntity.status(HttpStatus.OK).body(tasks);
     }
 

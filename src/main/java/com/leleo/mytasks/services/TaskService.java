@@ -8,6 +8,7 @@ import com.leleo.mytasks.model.Tag;
 import com.leleo.mytasks.model.Task;
 import com.leleo.mytasks.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,20 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    public List<Task> getAllTasks(String searchQuery, String priority, String status) {
+        List<Task> tasks = taskRepository.findAll();
+        Map<String, String> filters = new HashMap<>();
+        if (!searchQuery.isBlank()) {
+            return taskRepository.findByTitleContainingIgnoreCase(searchQuery);
+        }
+
+        return tasks.stream()
+                .filter(task -> priority.isBlank() ||
+                        (task.getPriority() != null && task.getPriority().name().equalsIgnoreCase(priority)))
+                .filter(task -> status.isBlank() ||
+                        (status.equals("completed") && task.getCompleted()) ||
+                        (status.equals("uncompleted") && !task.getCompleted()))
+                .toList();
     }
 
     public Task getTask(UUID id) {
