@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@Controller
-@RequestMapping("/api/v1/tasks") // define o prefixo para todos os endpoints
+@RestController
+@RequestMapping("/api/v1/tasks")
 public class TaskController {
 
     @Autowired
