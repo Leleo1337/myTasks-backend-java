@@ -37,6 +37,9 @@ public class Task {
     @JsonManagedReference
     private List<Tag> tags = new ArrayList<>();
 
+    @Column(updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
     public UUID getId() {
         return id;
     }
@@ -87,5 +90,13 @@ public class Task {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }
