@@ -17,4 +17,6 @@ public interface TaskRepository extends JpaRepository<Task, UUID> {
     long count();
 
     List<Task> findByTitleContainingIgnoreCase(String search);
+
+    List<Task> findAllByOrderByCreatedAtAsc();
 }
