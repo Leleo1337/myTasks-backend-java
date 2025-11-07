@@ -43,11 +43,9 @@ public class TaskService {
         }
         try {
             Priority.valueOf(request.getPriority().toUpperCase());
-            System.out.println("oiii passei aqui");
         } catch (IllegalArgumentException e) {
             System.out.println();
             errors.put("priority", "Priority must be LOW, MEDIUM, HIGH");
-
         }
         if (!errors.isEmpty()) {
             throw new ValidationException("Invalid fields", errors);
@@ -99,9 +97,10 @@ public class TaskService {
         return task;
     }
 
-    public void deleteTask(UUID id) {
-        taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
+    public Task deleteTask(UUID id) {
+        Task task = taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
         taskRepository.deleteById(id);
+        return task;
     }
 }
 
