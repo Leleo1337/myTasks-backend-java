@@ -29,7 +29,7 @@ public class TaskService {
     }
 
     public List<Task> getAllTasks(String searchQuery, String priority, String status) {
-        List<Task> tasks = taskRepository.findAll();
+        List<Task> tasks = taskRepository.findAllByOrderByCreatedAtAsc();
         Map<String, String> filters = new HashMap<>();
         if (!searchQuery.isBlank()) {
             return taskRepository.findByTitleContainingIgnoreCase(searchQuery);
@@ -37,8 +37,10 @@ public class TaskService {
 
         return tasks.stream()
                 .filter(task -> priority.isBlank() ||
+                        priority.equals("all") ||
                         (task.getPriority() != null && task.getPriority().name().equalsIgnoreCase(priority)))
                 .filter(task -> status.isBlank() ||
+                        status.equals("all") ||
                         (status.equals("completed") && task.getCompleted()) ||
                         (status.equals("uncompleted") && !task.getCompleted()))
                 .toList();
