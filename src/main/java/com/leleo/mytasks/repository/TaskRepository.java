@@ -9,4 +9,8 @@ import java.util.UUID;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, UUID> {
 
+    long countByCompletedTrue();
+    long countByCompletedFalse();
+    long count();
+
 }
