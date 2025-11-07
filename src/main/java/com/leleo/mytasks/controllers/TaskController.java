@@ -22,7 +22,7 @@ public class TaskController {
     @GetMapping
     public ResponseEntity<List<Task>> getAllTasks() {
         List<Task> tasks = taskService.getAllTasks();
-        return ResponseEntity.ok(tasks);
+        return ResponseEntity.status(HttpStatus.OK).body(tasks);
     }
 
     @GetMapping("/{id}")
@@ -44,8 +44,8 @@ public class TaskController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTask(@PathVariable UUID id) {
-        taskService.deleteTask(id);
-        return ResponseEntity.ok("Deletado com sucesso!");
+    public ResponseEntity<Task> deleteTask(@PathVariable UUID id) {
+        Task deletedtask = taskService.deleteTask(id);
+        return ResponseEntity.status(HttpStatus.OK).body(deletedtask);
     }
 }
