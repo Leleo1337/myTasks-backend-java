@@ -2,9 +2,9 @@ server:
   port: 3000
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/myTasks
-    username: postgres
-    password: 123465
+    url: jdbc:postgresql://dpg-d492n5i119vc739kh9k0-a:5432/mytasks_lsqd
+    username: mytasks_lsqd_user
+    password: P28aw4QHbIirsIyQvf8fapTvL57tQnYd
   jpa:
     hibernate:
       ddl-auto: update
