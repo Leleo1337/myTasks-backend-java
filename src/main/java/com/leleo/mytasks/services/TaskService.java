@@ -8,8 +8,6 @@ import com.leleo.mytasks.model.Tag;
 import com.leleo.mytasks.model.Task;
 import com.leleo.mytasks.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
